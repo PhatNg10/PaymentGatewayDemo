@@ -30,6 +30,12 @@
             <type>jar</type>
         </dependency>
         <dependency>
+            <groupId>be.atbash.runtime.api</groupId>
+            <artifactId>core-api</artifactId>
+            <version>0.4</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>${jakartaee}</version>

@@ -1,3 +1,5 @@
 com\phamchien\PaymentReturnServlet.class
+com\mycompany\paymentdemo\resources\JakartaEE11Resource.class
+com\mycompany\paymentdemo\JakartaRestConfiguration.class
 com\phamchien\PaymentServlet.class
 com\phamchien\VNPayConfig.class
