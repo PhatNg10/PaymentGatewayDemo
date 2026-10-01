@@ -59,6 +59,14 @@ public class PaymentServlet extends HttpServlet {
 
         String vnp_ExpireDate = formatter.format(cld.getTime());
         vnp_Params.put("vnp_ExpireDate", vnp_ExpireDate);
+        
+        // Debug
+        System.out.println("========== VNPAY DEBUG ==========");
+        System.out.println("Server Time: " + new Date());
+        System.out.println("CreateDate: " + vnp_CreateDate);
+        System.out.println("ExpireDate: " + vnp_ExpireDate);
+        System.out.println("Timezone: " + timeZone.getID());
+        System.out.println("=================================");
 
         List<String> fieldNames = new ArrayList<>(vnp_Params.keySet());
         Collections.sort(fieldNames);
