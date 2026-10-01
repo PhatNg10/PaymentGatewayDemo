@@ -17,9 +17,34 @@ public class PaymentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/plain;charset=UTF-8");
-        response.getWriter().println("PAYMENT SERVLET IS RUNNING");
-        response.getWriter().println("Context Path: " + request.getContextPath());
-        response.getWriter().println("Request URL: " + request.getRequestURL());
+
+        // Múi giờ mặc định của Render/JVM
+        TimeZone defaultTZ = TimeZone.getDefault();
+
+        // Múi giờ Việt Nam
+        TimeZone vietnamTZ = TimeZone.getTimeZone("Asia/Ho_Chi_Minh");
+
+        // Thời gian hiện tại
+        Date now = new Date();
+
+        SimpleDateFormat formatter =
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        response.getWriter().println("===== RENDER TIMEZONE DEBUG =====");
+
+        response.getWriter().println("JVM Timezone: " + defaultTZ.getID());
+
+        formatter.setTimeZone(defaultTZ);
+        response.getWriter().println("Render Server Time: " + formatter.format(now));
+
+        formatter.setTimeZone(vietnamTZ);
+        response.getWriter().println("Vietnam Time: " + formatter.format(now));
+
+        response.getWriter().println("UTC Offset (JVM): "
+                + defaultTZ.getOffset(now.getTime()) / 3600000.0 + " hours");
+
+        response.getWriter().println("================================");
+
         return;
         
 //        request.setCharacterEncoding("UTF-8");
